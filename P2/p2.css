@@ -1,0 +1,1026 @@
+/*tipografias*/
+@font-face {
+    font-family: 'Inter';
+    src: url("../tipografias/Inter-VariableFont_opsz_wght.ttf") format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url("../tipografias/CormorantGaramond-Italic-VariableFont_wght.ttf") format('truetype');
+    font-weight: 100 900;
+    /* Ejemplo para rangos de peso, si la fuente es variable */
+    font-style: italic;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    display: grid;
+    min-height: 100vh;
+    /* Asegura que el body ocupe toda la altura de la ventana */
+    grid-template-rows: auto 1fr auto;
+    /* Header, contenido, footer */
+    background-color: rgb(18, 18, 18);
+    color: aliceblue;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    cursor: none;
+}
+
+/* Cursor personalizado */
+.cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    transition: transform 0.1s, background-color 0.2s;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 9999;
+}
+
+a:hover~.cursor,
+button:hover~.cursor {
+    transform: scale(2) translate(-25%, -25%);
+    background-color: #ffffff;
+}
+
+/* Header y navegación */
+header {
+    mix-blend-mode: difference;
+    padding-top: 2%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.linea {
+    display: inline-block;
+    width: 30px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+.cabecera-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cabecera a {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: none;
+}
+
+.navbar {
+    display: flex;
+    align-items: right;
+    cursor: none;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 7rem;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 400;
+    transition: color 0.3s;
+    cursor: none;
+}
+
+nav ul li a:hover {
+    font-family: 'Times New Roman', 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    cursor: none;
+}
+
+/* Contenedor principal */
+.cont {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 0;
+}
+
+/* Div de pantalla completa */
+.hero {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    text-align: left;
+    overflow: hidden;
+    margin-top: 0;
+}
+
+.hero .bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    filter: brightness(80%);
+}
+
+.hero h1 {
+    position: absolute;
+    z-index: 2;
+    bottom: 5%;
+    left: 2%;
+    font-size: 3rem;
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo {
+    font-size: clamp(8.5rem, 8vw, 9.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    font-weight: 500;
+    display: block;
+}
+
+.subtitulo {
+    font-family: 'Times New Roman', 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(5.75rem, 6.5vw, 7.5rem);
+    display: block;
+    margin-bottom: 2rem;
+  
+}
+
+/* Sección de créditos */
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.info-item {
+    font-size:  clamp(1.3rem, 1vw, 1.125rem);;
+    
+}
+
+.info-creditos {
+    display: flex;
+    gap: 6rem;
+    font-size: clamp(1.4rem, 1vw, 1.125rem);
+    font-weight: 550;
+}
+
+/* Sección de descripción */
+.desc {
+    color: #ffffff;
+    width: 100%;
+    padding: 5rem 2% 5rem 2%;
+    display: flex;
+    gap: 10%;
+
+ 
+}
+
+
+.texto-grande {
+    width: 80%;
+    font-size: clamp(3.5rem, 2vw, 4.5rem);
+    font-weight: 400;
+    width: 40%; 
+}
+
+.texto-normal {
+    font-size: clamp(1.875rem, 2.25vw, 2.5rem);
+    width: 50%;
+    font-weight: 400;
+   
+}
+
+
+/* Galerías de proyecto */
+.galeria {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.galeria-inner {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5%;
+}
+
+/* Imágenes */
+.media {
+    position: relative;
+    border-radius: 0.833vw;
+    flex: 1 1 calc(50% - 3%);
+    /* Ajusta el ancho para 2 columnas con espacio del 6% */
+    padding-bottom: 1.5%;
+}
+
+.media-100 {
+    flex: 1 1 100%;
+    /* Imágenes que ocupan el 100% del ancho */
+}
+
+.media-50 {
+    flex: 1 1 calc(50% - 3%);
+    /* Imágenes que ocupan el 50% del ancho con espacio del 6% */
+}
+
+.cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.833vw;
+}
+/* Clase para forzar elementos en una fila */
+.galeria-row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1.5%;
+}
+
+/* Clase para elementos que ocupan un tercio del ancho */
+.media-33 {
+    flex: 0 0 32.33%; /* Aproximadamente un tercio, dejando espacio para los gaps */
+    max-width: 32.33%;
+}
+
+/* Sección de proyectos recomendados */
+.nav-proy {
+    width: 100%;
+    padding: 1rem 2% 4rem 2%;
+    margin-top: 2rem;
+}
+
+.nav-inner {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.recomendados-titulo {
+    font-size: clamp(2rem, 3vw, 3rem);
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+}
+
+.recomendados-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.recomendado-item {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease;
+    cursor: none;
+}
+
+.recomendado-item:hover {
+    transform: translateY(-10px);
+}
+
+.recomendado-img {
+    width: 100%;
+    aspect-ratio: 1.5/1;
+    overflow: hidden;
+    border-radius: 0.833vw;
+    margin-bottom: 1rem;
+    position: relative; /* Para posicionar el overlay */
+}
+
+.recomendado-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.recomendado-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Nuevo overlay para el texto dentro de la imagen */
+.recomendado-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.recomendado-texto {
+    color: white;
+    font-size: 2.5rem; /* Mismo tamaño que recomendado-nombre */
+    font-weight: 400;
+}
+
+.recomendado-item:hover .recomendado-overlay {
+    background-color: rgba(0, 0, 0, 0.7); /* Más oscuro al hacer hover */
+}
+
+.recomendado-item:hover .recomendado-texto {
+    font-family: 'Times New Roman', 'Cormorant Garamond', serif;
+    font-style: italic;
+}
+
+/* Ocultar el texto original que estaba debajo de la imagen */
+.recomendado-nombre {
+    display: none;
+}
+
+
+
+/* Footer */
+footer {
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: white;
+    padding: 20px 2%;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+}
+
+.footer-content a {
+    color: white;
+    text-decoration: none;
+    cursor: none;
+}
+
+.footer-content a:hover {
+    font-family: 'Times New Roman', 'Cormorant Garamond', serif;
+    font-style: italic;
+}
+/* ============================= */
+/*        MEDIA QUERIES          */
+/* ============================= */
+
+/* Tablets and medium devices */
+@media screen and (max-width: 1024px) {
+    /* Layout adjustments */
+    .desc {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .texto-grande, .texto-normal {
+        width: 100%;
+    }
+    
+    .texto-grande {
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+        margin-bottom: 1rem;
+    }
+    
+    .texto-normal {
+        font-size: clamp(1.5rem, 2vw, 1.875rem);
+    }
+    
+    /* Header and navigation */
+    nav ul li {
+        margin-left: 3rem;
+    }
+    
+    /* Hero section */
+    .titulo {
+        font-size: clamp(6rem, 7vw, 8.5rem);
+    }
+    
+    .subtitulo {
+        font-size: clamp(4rem, 5vw, 5.75rem);
+    }
+    
+    /* Credits section */
+    .info-creditos {
+        gap: 3rem;
+    }
+    
+    /* Menu toggle for tablet */
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+    
+    /* Navigation menu for tablet */
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(18, 18, 18);
+        transition: 0.5s;
+        z-index: 3000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .navbar.active {
+        right: 0;
+    }
+    
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .navbar ul li {
+        margin: 2rem 0;
+    }
+    
+    .navbar ul li a {
+        font-size: 2.2rem;
+    }
+    
+    /* Close button */
+    .close-menu {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 1.8rem;
+        color: white;
+        cursor: pointer;
+        z-index: 3001;
+    }
+}
+
+/* Mobile devices */
+@media screen and (max-width: 768px) {
+    /* Layout adjustments */
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* Header and navigation */
+    header {
+        mix-blend-mode: normal;
+        padding: 15px 20px;
+    }
+    
+    .cabecera a {
+        font-size: 1.2rem;
+    }
+    
+    /* Hero section */
+    .hero h1 {
+        bottom: 3%;
+    }
+    
+    .titulo {
+        font-size: clamp(3.5rem, 6vw, 6rem);
+    }
+    
+    .subtitulo {
+        font-size: clamp(2.5rem, 4vw, 4rem);
+        margin-bottom: 1rem;
+    }
+    
+    /* Credits section */
+    .info-creditos {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    /* Description section */
+    .desc {
+        padding: 4rem 2% 3rem 2%;
+    }
+    
+    .texto-grande {
+        font-size: clamp(2rem, 3vw, 2.5rem);
+    }
+    
+    .texto-normal {
+        font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+    }
+    
+    /* Gallery section */
+    .galeria-inner {
+        flex-direction: column;
+    }
+    
+    .media, .media-50, .media-33 {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+    
+    /* Special gallery layouts */
+    .galeria-4 .galeria-inner {
+        flex-direction: column;
+    }
+    
+    .galeria-4 .media:first-child,
+    .galeria-4 .media:last-child {
+        flex: 1 1 100%;
+    }
+    
+    /* Recommended projects */
+    .recomendados-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .recomendado-img {
+        aspect-ratio: 16/9;
+    }
+    
+    /* Navigation menu for mobile */
+    .navbar ul li a {
+        font-size: 2rem;
+    }
+    
+    .navbar ul li {
+        margin: 1.5rem 0;
+    }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+    /* Hero section */
+    .titulo {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+    }
+    
+    .subtitulo {
+        font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    }
+    
+    /* Description section */
+    .texto-grande {
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+    }
+    
+    .texto-normal {
+        font-size: clamp(1rem, 1.2vw, 1.2rem);
+    }
+    
+    /* Recommended projects */
+    .recomendados-titulo {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .recomendado-texto {
+        font-size: 1.8rem;
+    }
+}
+/* Special gallery layout for P2 */
+@media (max-width: 768px) {
+    .galeria-row {
+        flex-direction: column;
+    }
+    
+    .media-33 {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+}
+@media screen and (max-width: 768px) {
+    /* Ensure header elements are properly positioned */
+    header {
+        padding: 15px 20px;
+        mix-blend-mode: normal;
+    }
+    
+    .cabecera-container {
+        position: relative;
+        align-items: center;
+    }
+    
+    /* Make menu toggle more visible */
+    .menu-toggle {
+        color: white;
+        font-size: 1.8rem;
+    }
+    
+    /* Ensure navbar is full screen when active */
+    .navbar.active {
+        display: flex;
+        right: 0;
+        background-color: rgba(18, 18, 18);
+    }
+    
+    /* Make close button more visible */
+    .close-menu {
+        color: white;
+        font-size: 2rem;
+    }
+    
+    /* Ensure menu items are properly spaced */
+    .navbar ul li {
+        margin: 1.5rem 0;
+    }
+    
+    .navbar ul li a {
+        font-size: 2rem;
+        padding: 10px 0;
+    }
+}
+/* Mostrar el botón de menú hamburguesa solo en dispositivos móviles */
+@media screen and (max-width: 1024px) {
+    .menu-toggle {
+        display: block;
+    }
+    .close-menu {
+        display: block;
+    }
+}
+
+/* Ocultar el menú hamburguesa en dispositivos de escritorio */
+@media screen and (min-width: 1025px) {
+    .menu-toggle {
+        display: none;
+    }
+    .close-menu {
+        display: none;
+    }
+}
+
+
+
+/* ======= PANTALLAS MAYORES A PORTÁTILES ======= */
+
+/* Monitores Full HD y superiores */
+@media (min-width: 1921px) {
+    /* HEADER */
+    .linea {
+        display: inline-block;
+        width: 30px;
+        border-bottom: 2px solid rgb(255, 255, 255);
+        vertical-align: middle;
+        margin: 0 10px;
+    }
+
+    .cabecera a {
+        font-size: 1.8rem;
+    }
+
+    nav ul li a {
+        font-size: 1.8rem;
+    }
+
+    /* CONTENIDO ESPECÍFICO */
+    .titulo {
+        font-size: clamp(10.2rem, 9.6vw, 11.4rem); /* Aumentado un 20% */
+    }
+    
+    .subtitulo {
+        font-size: clamp(6.9rem, 7.8vw, 9rem); /* Aumentado un 20% */
+    }
+    
+    .info-item {
+        font-size: clamp(1.56rem, 1.2vw, 1.35rem); /* Aumentado un 20% */
+    }
+    
+    .info-creditos {
+        font-size: clamp(1.68rem, 1.2vw, 1.35rem); /* Aumentado un 20% */
+        gap: 7.2rem; /* Aumentado un 20% */
+    }
+    
+    .texto-grande {
+        font-size: clamp(4.2rem, 2.4vw, 5.4rem); /* Aumentado un 20% */
+    }
+    
+    .texto-normal {
+        font-size: clamp(2.25rem, 2.7vw, 3rem); /* Aumentado un 20% */
+    }
+    
+    .media {
+        border-radius: 1vw; /* Aumentado */
+    }
+    
+    .cover {
+        border-radius: 1vw; /* Aumentado */
+    }
+    
+    .recomendados-titulo {
+        font-size: clamp(2.4rem, 3.6vw, 3.6rem); /* Aumentado un 20% */
+    }
+    
+    .recomendado-texto {
+        font-size: 3rem; /* Aumentado un 20% */
+    }
+
+    /* FOOTER */
+    footer {
+        font-size: 19px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        padding-bottom: 20px;
+    }
+}
+
+/* Pantallas 2K */
+@media (min-width: 2560px) {
+    /* HEADER */
+    .linea {
+        width: 40px; /* 30px * 1.33 ≈ 40px */
+        border-bottom: 2.66px solid rgb(255, 255, 255); /* 2px * 1.33 ≈ 2.66px */
+    }
+
+    .cabecera a {
+        font-size: 2.4rem; /* 1.8rem * 1.33 ≈ 2.4rem */
+    }
+
+    nav ul li a {
+        font-size: 2.4rem; /* 1.8rem * 1.33 ≈ 2.4rem */
+    }
+
+    /* CONTENIDO ESPECÍFICO */
+    .titulo {
+        font-size: clamp(13.57rem, 12.77vw, 15.16rem); /* Aumentado un 33% */
+    }
+    
+    .subtitulo {
+        font-size: clamp(9.18rem, 10.37vw, 11.97rem); /* Aumentado un 33% */
+    }
+    
+    .info-item {
+        font-size: clamp(2.07rem, 1.6vw, 1.8rem); /* Aumentado un 33% */
+    }
+    
+    .info-creditos {
+        font-size: clamp(2.23rem, 1.6vw, 1.8rem); /* Aumentado un 33% */
+        gap: 9.58rem; /* Aumentado un 33% */
+    }
+    
+    .texto-grande {
+        font-size: clamp(5.59rem, 3.19vw, 7.18rem); /* Aumentado un 33% */
+    }
+    
+    .texto-normal {
+        font-size: clamp(2.99rem, 3.59vw, 3.99rem); /* Aumentado un 33% */
+    }
+    
+    .media {
+        border-radius: 1vw; /* Aumentado */
+    }
+    
+    .cover {
+        border-radius: 1vw; /* Aumentado */
+    }
+    
+    .recomendados-titulo {
+        font-size: clamp(3.19rem, 4.79vw, 4.79rem); /* Aumentado un 33% */
+    }
+    
+    .recomendado-texto {
+        font-size: 3.99rem; /* Aumentado un 33% */
+    }
+
+    /* FOOTER */
+    footer {
+        font-size: 25.27px; /* 19px * 1.33 ≈ 25.27px */
+        padding-bottom: 26.6px; /* 20px * 1.33 ≈ 26.6px */
+    }
+}
+
+/* Pantallas 3K */
+@media (min-width: 3240px) {
+    /* HEADER */
+    .linea {
+        width: 50.55px; /* 30px * 1.685 ≈ 50.55px */
+        border-bottom: 3.37px solid rgb(255, 255, 255); /* 2px * 1.685 ≈ 3.37px */
+    }
+
+    .cabecera a {
+        font-size: 3.03rem; /* 1.8rem * 1.685 ≈ 3.03rem */
+    }
+
+    nav ul li a {
+        font-size: 3.03rem; /* 1.8rem * 1.685 ≈ 3.03rem */
+    }
+
+    /* CONTENIDO ESPECÍFICO */
+    .titulo {
+        font-size: clamp(17.19rem, 16.18vw, 19.21rem); /* Aumentado un 68.5% */
+    }
+    
+    .subtitulo {
+        font-size: clamp(11.64rem, 13.15vw, 15.17rem); /* Aumentado un 68.5% */
+    }
+    
+    .info-item {
+        font-size: clamp(2.63rem, 2.02vw, 2.28rem); /* Aumentado un 68.5% */
+    }
+    
+    .info-creditos {
+        font-size: clamp(2.83rem, 2.02vw, 2.28rem); /* Aumentado un 68.5% */
+        gap: 12.15rem; /* Aumentado un 68.5% */
+    }
+    
+    .texto-grande {
+        font-size: clamp(7.08rem, 4.04vw, 9.1rem); /* Aumentado un 68.5% */
+    }
+    
+    .texto-normal {
+        font-size: clamp(3.79rem, 4.55vw, 5.06rem); /* Aumentado un 68.5% */
+    }
+    
+    .media {
+        border-radius: 1vw; /* Aumentado */
+    }
+    
+    .cover {
+        border-radius: 1vw; /* Aumentado */
+    }
+    
+    .recomendados-titulo {
+        font-size: clamp(4.04rem, 6.06vw, 6.06rem); /* Aumentado un 68.5% */
+    }
+    
+    .recomendado-texto {
+        font-size: 5.06rem; /* Aumentado un 68.5% */
+    }
+
+    /* FOOTER */
+    footer {
+        font-size: 32.02px; /* 19px * 1.685 ≈ 32.02px */
+        padding-bottom: 33.7px; /* 20px * 1.685 ≈ 33.7px */
+    }
+}
+
+/* Pantallas 4K */
+@media (min-width: 4480px) {
+    /* HEADER */
+    .linea {
+        width: 70px; /* 30px * 2.33 ≈ 70px */
+        border-bottom: 4.66px solid rgb(255, 255, 255); /* 2px * 2.33 ≈ 4.66px */
+    }
+
+    .cabecera a {
+        font-size: 4.2rem; /* 1.8rem * 2.33 ≈ 4.2rem */
+    }
+
+    nav ul li a {
+        font-size: 4.2rem; /* 1.8rem * 2.33 ≈ 4.2rem */
+    }
+
+    /* CONTENIDO ESPECÍFICO */
+    .titulo {
+        font-size: clamp(23.77rem, 22.37vw, 26.56rem); /* Aumentado un 133% */
+    }
+    
+    .subtitulo {
+        font-size: clamp(16.1rem, 18.2vw, 20.97rem); /* Aumentado un 133% */
+    }
+    
+    .info-item {
+        font-size: clamp(3.63rem, 2.8vw, 3.15rem); /* Aumentado un 133% */
+    }
+    
+    .info-creditos {
+        font-size: clamp(3.91rem, 2.8vw, 3.15rem); /* Aumentado un 133% */
+        gap: 16.8rem; /* Aumentado un 133% */
+    }
+    
+    .texto-grande {
+        font-size: clamp(9.8rem, 5.59vw, 12.6rem); /* Aumentado un 133% */
+    }
+    
+    .texto-normal {
+        font-size: clamp(5.24rem, 6.3vw, 7rem); /* Aumentado un 133% */
+    }
+    
+    .media {
+        border-radius: 1vw; /* Aumentado */
+    }
+    
+    .cover {
+        border-radius: 1vw; /* Aumentado */
+    }
+    
+    .recomendados-titulo {
+        font-size: clamp(5.59rem, 8.39vw, 8.39rem); /* Aumentado un 133% */
+    }
+    
+    .recomendado-texto {
+        font-size: 7rem; /* Aumentado un 133% */
+    }
+
+    /* FOOTER */
+    footer {
+        font-size: 44.27px; /* 19px * 2.33 ≈ 44.27px */
+        padding-bottom: 46.6px; /* 20px * 2.33 ≈ 46.6px */
+    }
+}
+
+/* Pantallas 5K y superiores */
+@media (min-width: 5120px) {
+    /* HEADER */
+    .linea {
+        width: 80px; /* 30px * 2.665 ≈ 80px */
+        border-bottom: 5.33px solid rgb(255, 255, 255); /* 2px * 2.665 ≈ 5.33px */
+    }
+
+    .cabecera a {
+        font-size: 4.8rem; /* 1.8rem * 2.665 ≈ 4.8rem */
+    }
+
+    nav ul li a {
+        font-size: 4.8rem; /* 1.8rem * 2.665 ≈ 4.8rem */
+    }
+
+    /* CONTENIDO ESPECÍFICO */
+    .titulo {
+        font-size: clamp(27.18rem, 25.58vw, 30.35rem); /* Aumentado un 166.5% */
+    }
+    
+    .subtitulo {
+        font-size: clamp(18.4rem, 20.8vw, 23.98rem); /* Aumentado un 166.5% */
+    }
+    
+    .info-item {
+        font-size: clamp(4.15rem, 3.2vw, 3.6rem); /* Aumentado un 166.5% */
+    }
+    
+    .info-creditos {
+        font-size: clamp(4.47rem, 3.2vw, 3.6rem); /* Aumentado un 166.5% */
+        gap: 19.2rem; /* Aumentado un 166.5% */
+    }
+    
+    .texto-grande {
+        font-size: clamp(11.2rem, 6.4vw, 14.4rem); /* Aumentado un 166.5% */
+    }
+    
+    .texto-normal {
+        font-size: clamp(5.99rem, 7.2vw, 8rem); /* Aumentado un 166.5% */
+    }
+    
+    .media {
+        border-radius: 1vw; /* Aumentado */
+    }
+     
+    .cover {
+        border-radius: 1vw; /* Aumentado */
+    }
+    
+    .recomendados-titulo {
+        font-size: clamp(6.4rem, 9.6vw, 9.6rem); /* Aumentado un 166.5% */
+    }
+    
+    .recomendado-texto {
+        font-size: 8rem; /* Aumentado un 166.5% */
+    }
+
+    /* FOOTER */
+    footer {
+        font-size: 50.64px; /* 19px * 2.665 ≈ 50.64px */
+        padding-bottom: 53.3px; /* 20px * 2.665 ≈ 53.3px */
+    }
+}

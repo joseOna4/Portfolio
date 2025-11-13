@@ -1,0 +1,896 @@
+/*tipografias*/
+@font-face {
+    font-family: 'Inter';
+    src: url("tipografias/Inter-VariableFont_opsz_wght.ttf") format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url("tipografias/CormorantGaramond-Italic-VariableFont_wght.ttf") format('truetype');
+    font-weight: 100 900;
+    /* Ejemplo para rangos de peso, si la fuente es variable */
+    font-style: italic;
+}
+
+
+/*tipografias */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+/*cursor*/
+.cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: aliceblue;
+    transition: transform 0.1s, background-color 0.2s;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    /* No interferir con la interacción del mouse */
+    mix-blend-mode: difference;
+    z-index: 9999;
+    /* Asegura que el cursor esté en la parte superior */
+}
+
+a:hover~.cursor,
+button:hover~.cursor {
+    transform: scale(2) translate(-50%, -50%);
+    background-color: #ffffff;
+    /* Opcional: cambiar color al hacer hover */
+}
+
+/* Estilos básicos */
+body {
+    display: grid;
+    min-height: 100vh;
+    /* Asegura que el body ocupe toda la altura de la ventana */
+    grid-template-rows: auto 1fr auto;
+    /* Header, contenido, footer */
+    background-color: rgb(18, 18, 18);
+    color: aliceblue;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    cursor: none;
+}
+
+/* Barra de navegación siempre visible */
+header {
+    mix-blend-mode: difference;
+    padding-top: 2%;
+    position: sticky;
+    /* Fija la barra de navegación */
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    /* Asegura que esté por encima de la galería */
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.linea {
+    display: inline-block;
+    width: 30px;
+    /* Ajusta el ancho según necesites */
+    border-bottom: 2px solid rgb(255, 255, 255);
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+.cabecera-container {
+    width: 100%;
+    display: flex;
+    /* Para alinear horizontalmente */
+    justify-content: space-between;
+    /* Distribuye el espacio entre la cabecera y la navegación */
+    align-items: center;
+    /* Alinea los elementos en la misma línea */
+}
+
+.cabecera a {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: aliceblue;
+    text-decoration: none;
+    cursor: none;
+}
+
+.navbar {
+    display: flex;
+    align-items: right;
+    cursor: none;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 7rem;
+}
+
+nav ul li a {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 400;
+    transition: color 0.3s;
+    cursor: none;
+}
+
+nav ul li a:hover {
+    color: #f0f0f0;
+    /* Cambiar color al hacer hover */
+    cursor: none;
+}
+
+/* Menú hamburguesa para móviles */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    z-index: 2001;
+    cursor: pointer;
+    margin-left: auto; /* Asegura que esté a la derecha */
+}
+
+.menu-toggle.active i:before {
+    content: "\f00d";
+    /* Cambia a icono X cuando está activo */
+}
+
+/* Botón de cierre para el menú móvil */
+.close-menu {
+    display: none; /* Oculto por defecto, se mostrará en móvil/tablet */
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Asegura que esté a la derecha */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: aliceblue;
+    z-index: 3001;
+}
+
+/* Estilos para el contenido principal */
+.content {
+    margin: 0 auto;
+    /* Centrar el contenido */
+    padding-top: 6%;
+    display: flex;
+    flex-direction: column;
+    /* Apila las secciones verticalmente */
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+/* Estilos para la sección de biografía */
+.bio {
+    font-size: 30px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Alinea los elementos al inicio */
+    padding-bottom: 5%;
+    gap: 9%;
+}
+
+
+.perfil img {
+    border-radius: 3%;
+    width: 600px;
+    max-width: 100%;
+    /* Asegura que la imagen no se desborde */
+}
+
+.intro {
+    width: 70%;
+    /* Ancho del texto introductorio */
+}
+
+.intro span {
+    font-family: 'Times New Roman', 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 200;
+}
+
+/* Estilos para la sección de habilidades */
+.skills {
+    width: 80%;
+    /* Ancho del contenedor de habilidades */
+    color: white;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.skills h2 {
+    font-size: 2rem;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+.skills p {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de íconos de software */
+.herramientas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.herramientas h2 {
+    font-size: 2rem;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+/* Modifica los estilos del contenedor de software */
+.software-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que los elementos se envuelvan */
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 10%;
+}
+
+.bio,
+.perfil img,
+.intro p,
+.skills,
+.herramientas {
+    opacity: 1;
+}
+
+/* Las animaciones GSAP se encargarán de la opacidad durante la animación */
+
+/* Estilos para cada ícono de software */
+.software {
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    opacity: 1;
+    /* Asegúrate de que sean visibles inicialmente */
+    transition: transform 0.3s ease;
+}
+
+.software:hover {
+    transform: translateY(-5px);
+}
+
+.software img {
+    width: 60px;
+    height: 60px;
+    filter: invert(1);
+    margin: 5px;
+}
+
+.software div {
+    margin-top: 8px;
+    font-size: 1.1rem;
+    color: white;
+}
+
+/*textos*/
+nav a:hover {
+    font-family: 'Times New Roman', 'Cormorant Garamond', serif;
+    /* Cambia la tipografía a Times New Roman */
+    font-style: italic;
+    /* Pone el texto en cursiva */
+    font-weight: 400;
+}
+
+nav a[href='sobremi.html'] {
+    font-family: 'Times New Roman', 'Cormorant Garamond', serif;
+    /* Cambia la tipografía a Times New Roman */
+    font-style: italic;
+    /* Pone el texto en cursiva */
+    font-weight: 400;
+}
+
+/*footer*/
+footer {
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: white;
+    justify-content: center;
+    padding-bottom: 20px;
+    width: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+}
+
+.footer-content a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer-content a:hover {
+    font-family: 'Times New Roman', 'Cormorant Garamond', serif;
+    /* Cambia la tipografía a Times New Roman */
+    font-style: italic;
+    /* Pone el texto en cursiva */
+}
+
+/* ============================= */
+/*        MEDIA QUERIES          */
+/* ============================= */
+
+/* Tablets y dispositivos medianos */
+@media screen and (max-width: 1024px) {
+    /* Mostrar el botón de cierre en tablets */
+    .close-menu {
+        display: block;
+    }
+    
+    /* Aumentar el tamaño de los textos del menú en tablets */
+    .navbar ul li a {
+        font-size: 2.2rem;
+    }
+    
+    /* Ajustar el espaciado entre elementos del menú */
+    .navbar ul li {
+        margin: 35px 0;
+    }
+    
+    /* Asegurar que el menú hamburguesa esté a la derecha */
+    .cabecera-container {
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .menu-toggle {
+        display: block;
+        text-align: right;
+    }
+    
+    /* Ajustes para la sección de biografía */
+    .bio {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        font-size: 28px;
+    }
+    
+    .perfil img {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .intro {
+        width: 100%;
+    }
+    
+    /* Ajustes para la sección de habilidades */
+    .skills {
+        width: 90%;
+    }
+    
+    .skills p {
+        font-size: 30px;
+    }
+    
+    /* Ajustes para la sección de herramientas */
+    .software-container {
+        width: 90%;
+    }
+}
+
+/* Móviles y dispositivos pequeños */
+@media screen and (max-width: 768px) {
+    /* Estilos generales para móviles */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Eliminar cursor personalizado en dispositivos móviles */
+    body.mobile {
+        cursor: auto;
+    }
+
+    body.mobile * {
+        cursor: auto;
+    }
+
+    /* Ajustes de cabecera */
+    header {
+        mix-blend-mode: normal;
+        padding: 15px 20px;
+    }
+    
+    /* Mantener la estructura de la cabecera en móviles */
+    .cabecera-container {
+        flex-direction: row; /* Mantener en fila */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Mostrar el botón de menú hamburguesa */
+    .menu-toggle {
+        display: block;
+        margin-left: auto; /* Asegura que esté a la derecha */
+    }
+
+    /* Mostrar el botón de cierre en móviles */
+    .close-menu {
+        display: block;
+        right: 20px; /* Asegura que esté a la derecha */
+    }
+
+    /* Configuración del menú móvil */
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Inicialmente fuera de la pantalla */
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(18, 18, 18);
+        transition: 0.5s;
+        z-index: 3000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .navbar.active {
+        right: 0; /* Cuando está activo, se muestra en pantalla */
+    }
+
+    body.menu-open {
+        overflow: hidden; /* Evita scroll cuando el menú está abierto */
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul li {
+        margin: 20px 0;
+    }
+
+    /* Aumentar el tamaño de los textos del menú */
+    .navbar ul li a {
+        font-size: 2rem;
+    }
+    
+    /* Ajustes para la sección de biografía */
+    .bio {
+        font-size: 20px;
+        padding: 20px 0;
+    }
+    
+    .perfil img {
+        max-width: 300px;
+    }
+    
+    /* Ajustes para la sección de habilidades */
+    .skills {
+        width: 100%;
+        margin-top: 30px;
+    }
+    
+    .skills h2 {
+        font-size: 1.8rem;
+    }
+    
+    .skills p {
+        font-size: 22px;
+    }
+    
+    /* Ajustes para la sección de herramientas */
+    .herramientas h2 {
+        font-size: 1.8rem;
+    }
+    
+    .software-container {
+        width: 100%;
+        gap: 15px;
+    }
+    
+    .software img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .software div {
+        font-size: 0.9rem;
+    }
+    
+    /* Ajuste para el footer */
+    footer .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 15px;
+        align-items: center;
+        padding: 0 20px;
+    }
+}
+
+/* Dispositivos muy pequeños */
+@media screen and (max-width: 480px) {
+    .bio {
+        font-size: 18px;
+    }
+    
+    .perfil img {
+        max-width: 250px;
+    }
+    
+    .skills h2, .herramientas h2 {
+        font-size: 1.5rem;
+    }
+    
+    .skills p {
+        font-size: 18px;
+    }
+    
+    .software {
+        padding: 5px;
+    }
+    
+    .software img {
+        width: 35px;
+        height: 35px;
+        margin: 3px;
+    }
+    
+    .software div {
+        font-size: 0.8rem;
+    }
+    
+    .cabecera a {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+
+
+/* ======= PANTALLAS MAYORES A PORTÁTILES ======= */
+
+/* Monitores Full HD y superiores */
+@media (min-width: 1921px) {
+    /* HEADER */
+    .linea {
+        display: inline-block;
+        width: 30px;
+        border-bottom: 2px solid rgb(255, 255, 255);
+        vertical-align: middle;
+        margin: 0 10px;
+    }
+
+    .cabecera a {
+        font-size: 1.8rem;
+    }
+
+    nav ul li a {
+        font-size: 1.8rem;
+    }
+
+    /* CONTENIDO ESPECÍFICO */
+    .bio {
+        font-size: 36px;
+    }
+    
+    .perfil img {
+        width: 720px;
+    }
+    
+    .skills h2, .herramientas h2 {
+        font-size: 3.4rem;
+        margin-bottom: 38px;
+    }
+    
+    .skills p {
+        font-size: 48px;
+    }
+    /* Modifica los estilos del contenedor de software */
+    .software-container {
+        display: flex;
+        flex-wrap: wrap;
+        /* Permite que los elementos se envuelvan */
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+        width: 80%;
+        margin: 0 auto;
+        padding-bottom: 15%;
+    }
+    
+    .software img {
+        width: 72px;
+        height: 72px;
+    }
+    
+    .software div {
+        margin-top: 8px;
+
+        font-size: 1.32rem;
+    }
+
+    /* FOOTER */
+    footer {
+        font-size: 19px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        padding-bottom: 20px;
+    }
+}
+
+/* Pantallas 2K */
+@media (min-width: 2560px) {
+    /* HEADER */
+    .linea {
+        width: 40px; /* 30px * 1.33 ≈ 40px */
+        border-bottom: 2.66px solid rgb(255, 255, 255); /* 2px * 1.33 ≈ 2.66px */
+    }
+
+    .cabecera a {
+        font-size: 2.4rem; /* 1.8rem * 1.33 ≈ 2.4rem */
+    }
+
+    nav ul li a {
+        font-size: 2.4rem; /* 1.8rem * 1.33 ≈ 2.4rem */
+    }
+
+    /* CONTENIDO ESPECÍFICO */
+    .bio {
+        font-size: 47.88px; /* 36px * 1.33 ≈ 47.88px */
+    }
+    
+    .perfil img {
+        width: 957.6px; /* 720px * 1.33 ≈ 957.6px */
+    }
+    
+    .skills h2, .herramientas h2 {
+        font-size: 4.19rem; /* 2.4rem * 1.33 ≈ 3.19rem */
+        margin-bottom: 68px;
+    }
+    
+    .skills p {
+        font-size: 63.84px; /* 48px * 1.33 ≈ 63.84px */
+    }
+    .software-container {
+        display: flex;
+        flex-wrap: wrap;
+        /* Permite que los elementos se envuelvan */
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+        width: 80%;
+        margin: 0 auto;
+        padding-bottom: 15%;
+    }
+    
+    .software img {
+        width: 95.76px; /* 72px * 1.33 ≈ 95.76px */
+        height: 95.76px; /* 72px * 1.33 ≈ 95.76px */
+    }
+    
+    .software div {
+        margin-top: 8px;
+
+        font-size: 2.76rem; /* 1.32rem * 1.33 ≈ 1.76rem */
+    }
+
+    /* FOOTER */
+    footer {
+        font-size: 25.27px; /* 19px * 1.33 ≈ 25.27px */
+        padding-bottom: 26.6px; /* 20px * 1.33 ≈ 26.6px */
+    }
+}
+
+/* Pantallas 3K */
+@media (min-width: 3240px) {
+    /* HEADER */
+    .linea {
+        width: 50.55px; /* 30px * 1.685 ≈ 50.55px */
+        border-bottom: 3.37px solid rgb(255, 255, 255); /* 2px * 1.685 ≈ 3.37px */
+    }
+
+    .cabecera a {
+        font-size: 3.03rem; /* 1.8rem * 1.685 ≈ 3.03rem */
+    }
+
+    nav ul li a {
+        font-size: 3.03rem; /* 1.8rem * 1.685 ≈ 3.03rem */
+    }
+
+    /* CONTENIDO ESPECÍFICO */
+    .bio {
+        font-size: 60.66px; /* 36px * 1.685 ≈ 60.66px */
+    }
+    
+    .perfil img {
+        width: 1213.2px; /* 720px * 1.685 ≈ 1213.2px */
+    }
+    
+    .skills h2, .herramientas h2 {
+        font-size: 5.04rem; /* 2.4rem * 1.685 ≈ 4.04rem */
+        margin-bottom: 68px;
+    }
+    
+    .skills p {
+        font-size: 80.88px; /* 48px * 1.685 ≈ 80.88px */
+    }
+    .software-container {
+        display: flex;
+        flex-wrap: wrap;
+        /* Permite que los elementos se envuelvan */
+        justify-content: center;
+        gap: 40px;
+        margin-top: 20px;
+        width: 80%;
+        margin: 0 auto;
+        padding-bottom: 25%;
+    }
+    
+    .software img {
+        width: 121.32px; /* 72px * 1.685 ≈ 121.32px */
+        height: 121.32px; /* 72px * 1.685 ≈ 121.32px */
+    }
+    
+    .software div {
+        margin-top: 8px;
+        font-size: 3.22rem; /* 1.32rem * 1.685 ≈ 2.22rem */
+    }
+
+    /* FOOTER */
+    footer {
+        font-size: 32.02px; /* 19px * 1.685 ≈ 32.02px */
+        padding-bottom: 33.7px; /* 20px * 1.685 ≈ 33.7px */
+    }
+}
+
+/* Pantallas 4K */
+@media (min-width: 4480px) {
+    /* HEADER */
+    .linea {
+        width: 70px; /* 30px * 2.33 ≈ 70px */
+        border-bottom: 4.66px solid rgb(255, 255, 255); /* 2px * 2.33 ≈ 4.66px */
+    }
+
+    .cabecera a {
+        font-size: 4.2rem; /* 1.8rem * 2.33 ≈ 4.2rem */
+    }
+
+    nav ul li a {
+        font-size: 4.2rem; /* 1.8rem * 2.33 ≈ 4.2rem */
+    }
+
+    /* CONTENIDO ESPECÍFICO */
+    .bio {
+        font-size: 83.88px; /* 36px * 2.33 ≈ 83.88px */
+    }
+    
+    .perfil img {
+        width: 1677.6px; /* 720px * 2.33 ≈ 1677.6px */
+    }
+    
+    .skills h2, .herramientas h2 {
+        font-size: 6.59rem; /* 2.4rem * 2.33 ≈ 5.59rem */
+        margin-bottom: 78px;
+    }
+    
+    .skills p {
+        font-size: 111.84px; /* 48px * 2.33 ≈ 111.84px */
+    }
+    .software-container {
+        display: flex;
+        flex-wrap: wrap;
+        /* Permite que los elementos se envuelvan */
+        justify-content: center;
+        gap: 80px;
+        margin-top: 20px;
+        width: 80%;
+        margin: 0 auto;
+        padding-bottom: 25%;
+    }
+    
+    .software img {
+        width: 167.76px; /* 72px * 2.33 ≈ 167.76px */
+        height: 167.76px; /* 72px * 2.33 ≈ 167.76px */
+    }
+    
+    .software div {
+        margin-top: 8px;
+        font-size: 4.08rem; /* 1.32rem * 2.33 ≈ 3.08rem */
+    }
+
+    /* FOOTER */
+    footer {
+        font-size: 44.27px; /* 19px * 2.33 ≈ 44.27px */
+        padding-bottom: 46.6px; /* 20px * 2.33 ≈ 46.6px */
+    }
+}
+
+/* Pantallas 5K y superiores */
+@media (min-width: 5120px) {
+    /* HEADER */
+    .linea {
+        width: 80px; /* 30px * 2.665 ≈ 80px */
+        border-bottom: 5.33px solid rgb(255, 255, 255); /* 2px * 2.665 ≈ 5.33px */
+    }
+
+    .cabecera a {
+        font-size: 4.8rem; /* 1.8rem * 2.665 ≈ 4.8rem */
+    }
+
+    nav ul li a {
+        font-size: 4.8rem; /* 1.8rem * 2.665 ≈ 4.8rem */
+    }
+
+    /* CONTENIDO ESPECÍFICO */
+    .bio {
+        font-size: 95.94px; /* 36px * 2.665 ≈ 95.94px */
+    }
+    
+    .perfil img {
+        width: 1918.8px; /* 720px * 2.665 ≈ 1918.8px */
+    }
+    
+    .skills h2, .herramientas h2 {
+        font-size: 7.4rem; /* 2.4rem * 2.665 ≈ 6.4rem */
+        margin-bottom: 88px;
+    }
+    
+    .skills p {
+        font-size: 127.92px; /* 48px * 2.665 ≈ 127.92px */
+    }
+    .software-container {
+        display: flex;
+        flex-wrap: wrap;
+        /* Permite que los elementos se envuelvan */
+        justify-content: center;
+        gap: 110px;
+        margin-top: 20px;
+        width: 80%;
+        margin: 0 auto;
+        padding-bottom: 20%;
+    }
+    
+    .software img {
+        width: 191.88px; /* 72px * 2.665 ≈ 191.88px */
+        height: 191.88px; /* 72px * 2.665 ≈ 191.88px */
+    }
+    
+    .software div {
+        margin-top: 8px;
+
+        font-size: 4.52rem; /* 1.32rem * 2.665 ≈ 3.52rem */
+    }
+
+    /* FOOTER */
+    footer {
+        font-size: 50.64px; /* 19px * 2.665 ≈ 50.64px */
+        padding-bottom: 53.3px; /* 20px * 2.665 ≈ 53.3px */
+    }
+}

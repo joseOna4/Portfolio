@@ -1,0 +1,39 @@
+RewriteEngine On
+
+# Redirigir index.html a la raíz
+RewriteRule ^index\.html$ / [R=301,L]
+
+# Redirigir URLs con .html a versiones sin extensión
+RewriteCond %{THE_REQUEST} \s/([^.]+)\.html [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Mapeo de nombres amigables de proyectos a carpetas reales
+RewriteRule ^chips-ahoy/?$ /P1/ [NC,R=301,L]
+RewriteRule ^tadanori-yokoo/?$ /P2/ [NC,R=301,L]
+RewriteRule ^lista-roja/?$ /P3/ [NC,R=301,L]
+RewriteRule ^tttyg/?$ /P4/ [NC,R=301,L]
+RewriteRule ^la-grieta/?$ /P5/ [NC,R=301,L]
+RewriteRule ^revuelta/?$ /P6/ [NC,R=301,L]
+RewriteRule ^ilustraciones/?$ /P7/ [NC,R=301,L]
+
+# Mapeo de nombres descriptivos para las páginas de proyectos
+RewriteRule ^fotografia-publicitaria/?$ /P1/p1.html [NC,R=301,L]
+RewriteRule ^diseno-folleto/?$ /P2/p2.html [NC,R=301,L]
+RewriteRule ^especies-vulnerables/?$ /P3/p3.html [NC,R=301,L]
+RewriteRule ^portada-album/?$ /P4/p4.html [NC,R=301,L]
+RewriteRule ^diseno-packaging/?$ /P5/p5.html [NC,R=301,L]
+RewriteRule ^prototipado-interactivo/?$ /P6/p6.html [NC,R=301,L]
+RewriteRule ^proyectos-personales/?$ /P7/p7.html [NC,R=301,L]
+
+# Reescribir URLs sin extensión a .html (excluyendo imágenes y SVG)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !\.(jpg|jpeg|png|gif|svg|webp|bmp|ico|css|js|mp4)$ [NC]
+RewriteRule ^(.*)$ $1.html [NC,L]
+
+# Deshabilitar caché para archivos HTML, CSS y JS
+<FilesMatch "\.(html|css|js)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</FilesMatch>

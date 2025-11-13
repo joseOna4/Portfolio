@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>Portfolio | José Cervera</title>
+
+    <link rel="stylesheet" href="portfoliocss.css?v=1.1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap" rel="stylesheet">
+    <script>document.documentElement.className = "js";</script>
+    <!-- Añadimos Font Awesome para el icono del menú hamburguesa -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="loading">
+    <!-- Contenedor para las imágenes del efecto trail (solo visible en desktop) -->
+    <div class="image-trail-container">
+        <!-- Imágenes de proyectos para el efecto trail con atributos data-link -->
+        <img class="content__img" src="ImgHome/06.jpg" alt="Proyecto 1" data-link="P1/p1.html">
+        <img class="content__img" src="ImgHome/2.jpg" alt="Proyecto 2" data-link="P2/p2.html">
+        <img class="content__img" src="ImgHome/3.jpg" alt="Proyecto 3" data-link="P3/p3.html">
+        <img class="content__img" src="ImgHome/Free_Vinyl_Mockup_1.png" alt="Proyecto 4" data-link="P4/p4.html">
+        <img class="content__img" src="ImgHome/Free_Wine_Bottle_Mockup_2.png" alt="Proyecto 5" data-link="P5/p5.html">
+        <img class="content__img" src="ImgHome/phone.jpg" alt="Proyecto 6" data-link="P6/p6.html">
+        <img class="content__img" src="ImgHome/331.jpg" alt="Proyecto 7" data-link="P7/p7.html">
+
+        <!-- Duplicamos las imágenes para tener más continuidad -->
+        <img class="content__img" src="ImgHome/06.jpg" alt="Proyecto 1" data-link="P1/p1.html">
+        <img class="content__img" src="ImgHome/2.jpg" alt="Proyecto 2" data-link="P2/p2.html">
+        <img class="content__img" src="ImgHome/3.jpg" alt="Proyecto 3" data-link="P3/p3.html">
+        <img class="content__img" src="ImgHome/Free_Vinyl_Mockup_1.png" alt="Proyecto 4" data-link="P4/p4.html">
+        <img class="content__img" src="ImgHome/Free_Wine_Bottle_Mockup_2.png" alt="Proyecto 5" data-link="P5/p5.html">
+        <img class="content__img" src="ImgHome/phone.jpg" alt="Proyecto 6" data-link="P6/p6.html">
+        <img class="content__img" src="ImgHome/331.jpg" alt="Proyecto 7" data-link="P7/p7.html">
+
+    </div>
+
+    <header>
+        <div class="cabecera-container" >
+            <div class="cabecera">
+                <a href="index.html">José<span class="linea"></span>Cervera.</a>
+            </div>
+            <!-- Botón de menú hamburguesa para móviles -->
+            <!-- Modificar el menú hamburguesa para incluir un icono de cierre -->
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <!-- Añadir un botón de cierre explícito dentro del menú desplegable -->
+            <div class="navbar">
+                <div class="close-menu">
+                    <i class="fas fa-times"></i>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="sobremi.html">Sobre mí</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <div class="mobile-layout">
+            <div class="mobile-name-top">José</div>
+            <div class="mobile-image-showcase">
+                <!-- Imágenes para móvil -->
+                <img class="content__img" src="ImgHome/06.jpg" alt="Proyecto 1" data-link="P1/p1.html">
+                <img class="content__img" src="ImgHome/2.jpg" alt="Proyecto 2" data-link="P2/p2.html">
+                <img class="content__img" src="ImgHome/3.jpg" alt="Proyecto 3" data-link="P3/p3.html">
+                <img class="content__img" src="ImgHome/Free_Vinyl_Mockup_1.png" alt="Proyecto 4" data-link="P4/p4.html">
+                <img class="content__img" src="ImgHome/Free_Wine_Bottle_Mockup_2.png" alt="Proyecto 5"
+                    data-link="P5/p5.html">
+                <img class="content__img" src="ImgHome/phone.jpg" alt="Proyecto 6" data-link="P6/p6.html">
+                <img class="content__img" src="ImgHome/331.jpg" alt="Proyecto 7" data-link="P7/p7.html">
+
+            </div>
+            <div class="mobile-name-bottom">Cervera</div>
+            <!-- Añadido: Slider de Portfolio/Diseño Gráfico para móvil -->
+            <div class="mobile-slider-container">
+                <div class="mobile-slider-text">
+                    <div class="mobile-slider-item">
+                        <div class="mobile-slider-item-inner">Portfolio</div>
+                    </div>
+                    <div class="mobile-slider-item">
+                        <div class="mobile-slider-item-inner">Diseño Gráfico</div>
+                    </div>
+                    <div class="mobile-slider-item">
+                        <div class="mobile-slider-item-inner">Portfolio</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tablet-image-showcase" style="display: none;">
+            <!-- Imágenes para tablet -->
+            <img class="content__img" src="ImgHome/06.jpg" alt="Proyecto 1" data-link="P1/p1.html">
+            <img class="content__img" src="ImgHome/2.jpg" alt="Proyecto 2" data-link="P2/p2.html">
+            <img class="content__img" src="ImgHome/3.jpg" alt="Proyecto 3" data-link="P3/p3.html">
+            <img class="content__img" src="ImgHome/Free_Vinyl_Mockup_1.png" alt="Proyecto 4" data-link="P4/p4.html">
+            <img class="content__img" src="ImgHome/Free_Wine_Bottle_Mockup_2.png" alt="Proyecto 5"
+                data-link="P5/p5.html">
+            <img class="content__img" src="ImgHome/phone.jpg" alt="Proyecto 6" data-link="P6/p6.html">
+            <img class="content__img" src="ImgHome/331.jpg" alt="Proyecto 7" data-link="P7/p7.html">
+
+        </div>
+
+        <div class="contenthome desktop-only">
+            <div class="parent">
+                <div id="josec-text">
+                    José Cervera
+                </div>
+
+                <!-- Slider infinito mejorado -->
+                <div class="slider-container">
+                    <div class="slider-text">
+                        <div class="slider-item">
+                            <div class="slider-item-inner">Portfolio</div>
+                        </div>
+                        <div class="slider-item">
+                            <div class="slider-item-inner">Diseño Gráfico</div>
+                        </div>
+                        <div class="slider-item">
+                            <div class="slider-item-inner">Portfolio</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer>
+        <div class="footer-content">
+            <span>&copy;2025, Alicante</span>
+            <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Volver Arriba</a>
+            <a href="https://www.instagram.com/on_cervera/" target="_blank">Instagram</a>
+        </div>
+    </footer>
+
+    <!-- CURSOR (solo para desktop) -->
+    <div class="cursor"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="trail.js?v=1.1"></script>
+
+    <script>
+        // Detectar si es un dispositivo móvil o tablet
+        const isMobileOrTablet = () => {
+            return window.innerWidth <= 1024;
+        };
+
+        // Menú hamburguesa para móviles
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
+            document.querySelector('.navbar').classList.toggle('active');
+            this.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+
+        const cursor = document.querySelector('.cursor');
+
+        // Solo activar el cursor personalizado en desktop
+        if (!isMobileOrTablet()) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+        } else {
+            cursor.style.display = 'none';
+        }
+
+        // Asegúrate de que el DOM esté cargado
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializar en móviles
+            if (isMobileOrTablet()) {
+                document.body.classList.add('mobile');
+            }
+
+            // Animación para "José Cervera"
+            TweenMax.from("#josec-text", 1.5, {
+                yPercent: 100,
+                opacity: 0,
+                ease: Power4.easeOut,
+                onStart: () => {
+                    document.getElementById('josec-text').style.opacity = 1;
+                }
+            });
+
+            // Animación para el slider con un pequeño retraso
+            TweenMax.from(".slider-container", 1.5, {
+                yPercent: 100,
+                opacity: 0,
+                ease: Power4.easeOut,
+                delay: 0.3, // Retraso de 0.3 segundos
+                onStart: () => {
+                    document.querySelector('.slider-container').style.opacity = 1;
+                }
+            });
+
+            // Animación para los elementos de navegación
+            TweenMax.staggerFrom("nav ul li", 1, {
+                y: 50,
+                opacity: 0,
+                ease: Power3.easeOut
+            }, 0.2);
+
+            // Slider infinito para alternar entre Portfolio y Diseño Gráfico
+            function setupInfiniteSlider() {
+                const sliderText = document.querySelector('.slider-text');
+
+                // Configuración inicial
+                TweenMax.set(sliderText, {
+                    y: 0
+                });
+
+                // Animación infinita
+                const tl = new TimelineMax({
+                    repeat: -1, // Repetir infinitamente
+                    repeatDelay: 0.5 // Pequeña pausa entre ciclos
+                });
+
+                // Primera animación: mantener "Portfolio" visible por 2 segundos
+                tl.to(sliderText, 2, {
+                    y: 0,
+                    ease: "none"
+                });
+
+                // Transición a "Diseño Gráfico"
+                tl.to(sliderText, 0.6, {
+                    y: "-33.33%", // Mover hacia arriba para mostrar el segundo elemento
+                    ease: Power2.easeInOut
+                });
+
+                // Mantener "Diseño Gráfico" visible por 2 segundos
+                tl.to(sliderText, 2, {
+                    y: "-33.33%",
+                    ease: "none"
+                });
+
+                // Transición de vuelta a "Portfolio"
+                tl.to(sliderText, 0.6, {
+                    y: "-66.66%", // Mover hacia arriba para mostrar el tercer elemento (que es igual al primero)
+                    ease: Power2.easeInOut
+                });
+
+                // Reset instantáneo para crear el loop infinito
+                tl.set(sliderText, {
+                    y: 0
+                });
+            }
+
+            // Configurar el slider móvil
+            // Configurar el slider móvil
+            function setupMobileSlider() {
+                if (!isMobileOrTablet()) return;
+
+                const mobileSliderText = document.querySelector('.mobile-slider-text');
+                if (!mobileSliderText) return;
+
+                // Configuración inicial
+                TweenMax.set(mobileSliderText, {
+                    y: 0
+                });
+
+                // Animación infinita
+                const mobileTl = new TimelineMax({
+                    repeat: -1, // Repetir infinitamente
+                    repeatDelay: 0.5 // Pequeña pausa entre ciclos
+                });
+
+                // Primera animación: mantener "Portfolio" visible por 2 segundos
+                mobileTl.to(mobileSliderText, 2, {
+                    y: 0,
+                    ease: "none"
+                });
+
+                // Transición a "Diseño Gráfico"
+                mobileTl.to(mobileSliderText, 0.6, {
+                    y: "-33.33%", // Mover hacia arriba para mostrar el segundo elemento
+                    ease: Power2.easeInOut
+                });
+
+                // Mantener "Diseño Gráfico" visible por 2 segundos
+                mobileTl.to(mobileSliderText, 2, {
+                    y: "-33.33%",
+                    ease: "none"
+                });
+
+                // Transición de vuelta a "Portfolio"
+                mobileTl.to(mobileSliderText, 0.6, {
+                    y: "-66.66%", // Mover hacia arriba para mostrar el tercer elemento (que es igual al primero)
+                    ease: Power2.easeInOut
+                });
+
+                // Reset instantáneo para crear el loop infinito
+                mobileTl.set(mobileSliderText, {
+                    y: 0
+                });
+            }
+
+            // Iniciar la animación después de que aparezca el texto principal
+            setTimeout(() => {
+                setupInfiniteSlider();
+                setupMobileSlider();
+            }, 1800); // Esperar a que termine la animación inicial
+        });
+
+        // Manejar cambios de tamaño de ventana
+        window.addEventListener('resize', function () {
+            if (isMobileOrTablet()) {
+                document.body.classList.add('mobile');
+                cursor.style.display = 'none';
+            } else {
+                document.body.classList.remove('mobile');
+                cursor.style.display = 'block';
+            }
+        });
+
+        // Inicializar clase mobile si es necesario
+        if (isMobileOrTablet()) {
+            document.body.classList.add('mobile');
+        }
+
+        // Función para detectar si es móvil o tablet
+        const isMobile = () => window.innerWidth <= 768;
+        const isTablet = () => window.innerWidth > 768 && window.innerWidth <= 1024;
+
+        // Función para mostrar las imágenes en móvil/tablet
+        function setupMobileImages() {
+            const mobileLayout = document.querySelector('.mobile-layout');
+            const desktopContent = document.querySelector('.desktop-only');
+            const mobileShowcase = document.querySelector('.mobile-image-showcase');
+            const tabletShowcase = document.querySelector('.tablet-image-showcase');
+            const images = document.querySelectorAll('.mobile-image-showcase .content__img, .tablet-image-showcase .content__img');
+
+            // Mostrar el contenedor adecuado según el dispositivo
+            if (isMobile()) {
+                if (mobileLayout) mobileLayout.style.display = 'flex';
+                if (desktopContent) desktopContent.style.display = 'none';
+                if (tabletShowcase) tabletShowcase.style.display = 'none';
+            } else if (isTablet()) {
+                if (mobileLayout) mobileLayout.style.display = 'none';
+                if (desktopContent) desktopContent.style.display = 'none';
+                if (tabletShowcase) tabletShowcase.style.display = 'block';
+            } else {
+                if (mobileLayout) mobileLayout.style.display = 'none';
+                if (desktopContent) desktopContent.style.display = 'block';
+                if (tabletShowcase) tabletShowcase.style.display = 'none';
+                return; // No continuar si no es móvil ni tablet
+            }
+
+            // Configurar la primera imagen como activa
+            if (images.length > 0) {
+                images[0].classList.add('active');
+            }
+
+            // Configurar rotación de imágenes
+            let currentIndex = 0;
+            setInterval(() => {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }, 3000); // Cambiar imagen cada 3 segundos
+
+            // Hacer que las imágenes sean clickeables
+            images.forEach(img => {
+                img.addEventListener('click', function () {
+                    const link = this.getAttribute('data-link');
+                    if (link) {
+                        window.location.href = link;
+                    }
+                });
+            });
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function () {
+            setupMobileImages();
+
+            // Actualizar en cambio de tamaño de ventana
+            window.addEventListener('resize', setupMobileImages);
+        });
+        // Cerrar el menú al hacer clic en los enlaces de navegación
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', function () {
+                document.querySelector('.navbar').classList.remove('active');
+                document.querySelector('.menu-toggle').classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+        // Añadir al final del script existente
+
+        // Manejar el botón de cierre del menú
+        document.querySelector('.close-menu').addEventListener('click', function () {
+            document.querySelector('.navbar').classList.remove('active');
+            document.querySelector('.menu-toggle').classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+
+        // Modificar la función setupMobileImages para hacer el carrusel infinito
+        function setupMobileImages() {
+            const mobileLayout = document.querySelector('.mobile-layout');
+            const desktopContent = document.querySelector('.desktop-only');
+            const mobileShowcase = document.querySelector('.mobile-image-showcase');
+            const tabletShowcase = document.querySelector('.tablet-image-showcase');
+            const mobileImages = document.querySelectorAll('.mobile-image-showcase .content__img');
+            const tabletImages = document.querySelectorAll('.tablet-image-showcase .content__img');
+
+            // Mostrar el contenedor adecuado según el dispositivo
+            if (isMobile()) {
+                if (mobileLayout) mobileLayout.style.display = 'flex';
+                if (desktopContent) desktopContent.style.display = 'none';
+                if (tabletShowcase) tabletShowcase.style.display = 'none';
+
+                // Configurar carrusel infinito para móvil
+                setupInfiniteCarousel(mobileImages);
+            } else if (isTablet()) {
+                if (mobileLayout) mobileLayout.style.display = 'none';
+                if (desktopContent) desktopContent.style.display = 'none';
+                if (tabletShowcase) tabletShowcase.style.display = 'block';
+
+                // Configurar carrusel infinito para tablet
+                setupInfiniteCarousel(tabletImages);
+            } else {
+                if (mobileLayout) mobileLayout.style.display = 'none';
+                if (desktopContent) desktopContent.style.display = 'block';
+                if (tabletShowcase) tabletShowcase.style.display = 'none';
+            }
+        }
+
+        // Función para configurar el carrusel infinito
+        function setupInfiniteCarousel(images) {
+            if (images.length === 0) return;
+
+            // Configurar la primera imagen como activa
+            images[0].classList.add('active');
+
+            let currentIndex = 0;
+
+            // Función para cambiar a la siguiente imagen
+            function nextImage() {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }
+
+            // Función para cambiar a la imagen anterior
+            function prevImage() {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                images[currentIndex].classList.add('active');
+            }
+
+            // Configurar intervalo para rotación automática
+            const interval = setInterval(nextImage, 1500);
+
+            // Añadir controles táctiles para deslizar
+            let startX, moveX;
+            const container = images[0].parentElement;
+
+            container.addEventListener('touchstart', function (e) {
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+
+            container.addEventListener('touchmove', function (e) {
+                moveX = e.touches[0].clientX;
+            }, { passive: true });
+
+            container.addEventListener('touchend', function () {
+                if (startX && moveX) {
+                    const diff = startX - moveX;
+                    if (Math.abs(diff) > 50) { // Umbral para considerar un deslizamiento
+                        if (diff > 0) {
+                            nextImage(); // Deslizar a la izquierda -> siguiente imagen
+                        } else {
+                            prevImage(); // Deslizar a la derecha -> imagen anterior
+                        }
+                        clearInterval(interval); // Detener la rotación automática
+                        setTimeout(() => {
+                            // Reiniciar la rotación automática después de la interacción
+                            setInterval(nextImage, 3000);
+                        }, 5000);
+                    }
+                }
+                startX = null;
+                moveX = null;
+            }, { passive: true });
+
+            // Hacer que las imágenes sean clickeables
+            images.forEach(img => {
+                img.addEventListener('click', function () {
+                    const link = this.getAttribute('data-link');
+                    if (link) {
+                        window.location.href = link;
+                    }
+                });
+            });
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,877 @@
+/*tipografias*/
+@font-face {
+    font-family: 'Inter';
+    src: url("tipografias/Inter-VariableFont_opsz_wght.ttf") format('truetype');
+    font-weight: 100 900;
+    /* Ejemplo para rangos de peso, si la fuente es variable */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url("tipografias/CormorantGaramond-Italic-VariableFont_wght.ttf") format('truetype');
+    font-weight: 100 900;
+    /* Ejemplo para rangos de peso, si la fuente es variable */
+    font-style: italic;
+}
+
+/*tipografias */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*cursor*/
+.cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: aliceblue;
+    transition: transform 0.1s, background-color 0.2s;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    /* No interferir con la interacción del mouse */
+    mix-blend-mode: difference;
+    z-index: 9999;
+    cursor: none;
+    /* Asegura que el cursor esté en la parte superior */
+}
+
+a:hover~.cursor,
+button:hover~.cursor {
+    transform: scale(2) translate(-50%, -50%);
+    background-color: #ffffff;
+    /* Opcional: cambiar color al hacer hover */
+}
+
+/* Estilos básicos */
+body {
+    display: grid;
+    min-height: 100vh;
+    /* Asegura que el body ocupe toda la altura de la ventana */
+    grid-template-rows: auto 1fr auto;
+    /* Header, contenido, footer */
+    background-color: rgb(18, 18, 18);
+    color: aliceblue;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    cursor: none;
+}
+
+
+
+/* Barra de navegación siempre visible */
+header {
+    mix-blend-mode: difference;
+    padding-top: 2%;
+    position: sticky;
+    /* Fija la barra de navegación */
+    top: 0;
+    width: 100%;
+    z-index: 2000;
+    /* Asegura que esté por encima de la galería */
+    padding-left: 2%;
+    padding-right: 2%;
+    cursor: none;
+}
+
+.linea {
+    display: inline-block;
+    width: 30px;
+    /* Ajusta el ancho según necesites */
+    border-bottom: 2px solid rgb(255, 255, 255);
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+.cabecera-container {
+    width: 100%;
+    display: flex;
+    /* Para alinear horizontalmente */
+    justify-content: space-between;
+    /* Distribuye el espacio entre la cabecera y la navegación */
+    align-items: center;
+    /* Alinea los elementos en la misma línea */
+    cursor: none;
+}
+
+.cabecera a {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: aliceblue;
+    text-decoration: none;
+    cursor: none;
+}
+
+
+.navbar {
+    display: flex;
+    align-items: right;
+    cursor: none;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 7rem;
+}
+
+nav ul li a {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 400;
+    transition: color 0.3s;
+    cursor: none;
+}
+
+nav ul li a:hover {
+    color: #f0f0f0;
+    /* Cambiar color al hacer hover */
+    cursor: none;
+}
+
+/* Menú hamburguesa para móviles */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    z-index: 2001;
+}
+
+.menu-toggle.active i:before {
+    content: "\f00d";
+    /* Cambia a icono X cuando está activo */
+}
+
+/* Estilos para el texto "JoseC&copy;" */
+#josec-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 10rem;
+    font-weight: 400;
+    width: 100%;
+    color: aliceblue;
+    text-align: center;
+    position: relative;
+    /* Cambiamos de absolute a relative */
+    transform: none;
+    /* Eliminamos el transform que tenían antes */
+    top: auto;
+    left: auto;
+    cursor: none;
+}
+
+.parent {
+    overflow: hidden;
+}
+
+/* Ajustes para mantener el posicionamiento correcto */
+.contenthome {
+    position: absolute;
+    top: 57.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    cursor: none;
+}
+
+/* Estilos para el slider infinito - versión corregida */
+.slider-container {
+    position: relative;
+    height: 7rem;
+    /* Altura igual a la del texto original */
+    overflow: hidden;
+    /* Oculta todo lo que sale del contenedor */
+    font-family: 'Times New Roman', 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 6rem;
+    font-weight: 200;
+    color: aliceblue;
+    text-align: center;
+    line-height: 1;
+    /* Ajusta el line-height para controlar mejor el espacio vertical */
+    transform: none;
+    /* Eliminamos el transform que tenían antes */
+    top: auto;
+    left: auto;
+    cursor: none;
+}
+
+.slider-text {
+    position: absolute;
+    width: 100%;
+    height: 300%;
+    /* 3 veces la altura para los 3 elementos */
+    display: flex;
+    flex-direction: column;
+}
+
+.slider-item {
+    height: 33.33%;
+    /* Cada elemento ocupa 1/3 del contenedor */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Aseguramos que cada elemento tenga exactamente la altura correcta */
+    overflow: hidden;
+    /* Oculta cualquier desbordamiento dentro de cada elemento */
+    position: relative;
+    /* Para posicionamiento absoluto de los textos si es necesario */
+}
+
+/* Contenedor adicional para cada texto para controlar mejor su posición */
+.slider-item-inner {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+/* Animación para mostrar "JoseC&copy;" */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*textos*/
+nav a:hover {
+    font-family:  'Times New Roman', 'Cormorant Garamond', serif;
+    /* Cambia la tipografía a Times New Roman */
+    font-style: italic;
+    /* Pone el texto en cursiva */
+    font-weight: 400;
+    cursor: none;
+}
+
+/*footer*/
+footer {
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: white;
+    justify-content: center;
+    padding-bottom: 20px;
+    width: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+}
+
+.footer-content a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer-content a:hover {
+    font-family:  'Times New Roman', 'Cormorant Garamond', serif;
+    /* Cambia la tipografía a Times New Roman */
+    font-style: italic;
+    /* Pone el texto en cursiva */
+}
+
+/* Estilos para el efecto de image trail */
+.image-trail-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    overflow: hidden;
+    pointer-events: none;
+    cursor: none;
+}
+
+.content__img {
+    max-width: 250px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    will-change: transform;
+    filter: none;
+    pointer-events: auto;
+    /* Permitir eventos de puntero para poder hacer clic */
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    cursor: none;
+}
+
+/* Clase para el cuerpo durante la carga */
+body.loading::before {
+    content: '';
+    position: fixed;
+    z-index: 100000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(18, 18, 18);
+    cursor: none;
+}
+
+/* Clase JS para compatibilidad con el código original */
+.js .loading::before {
+    content: '';
+    position: fixed;
+    z-index: 100000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(18, 18, 18);
+    cursor: none;
+}
+
+/* Añadir estilos para el botón de cierre */
+.close-menu {
+    display: none;
+    /* Oculto por defecto, se mostrará en móvil/tablet */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: aliceblue;
+    z-index: 3001;
+}
+
+
+/* ============================= */
+/*        MEDIA QUERIES          */
+/* ============================= */
+
+/* ======= PANTALLAS MENORES A PORTÁTILES ======= */
+/* Modificar los estilos para móviles */
+@media (max-width: 768px) {
+
+    /* Mostrar el botón de cierre en móviles */
+    .close-menu {
+        display: block;
+    }
+
+    /* Aumentar el tamaño de los textos del menú */
+    .navbar ul li a {
+        font-size: 2rem;
+        /* Aumentado de 1.5rem */
+    }
+
+    /* Ajustar el espaciado entre elementos del menú */
+    .navbar ul li {
+        margin: 30px 0;
+        /* Aumentado de 20px */
+    }
+}
+
+/* Modificar los estilos para tablets */
+@media (max-width: 1024px) and (min-width: 769px) {
+
+    /* Mostrar el botón de cierre en tablets */
+    .close-menu {
+        display: block;
+    }
+
+    /* Aumentar el tamaño de los textos del menú en tablets */
+    .navbar ul li a {
+        font-size: 2.2rem;
+        /* Ligeramente más grande que en móviles */
+    }
+
+    /* Ajustar el espaciado entre elementos del menú */
+    .navbar ul li {
+        margin: 35px 0;
+    }
+}
+
+/* Modificaciones para el menú móvil */
+@media (max-width: 768px) {
+
+    /* Estilos generales para móviles */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Eliminar cursor personalizado en dispositivos móviles */
+    body.mobile {
+        cursor: auto;
+    }
+
+    body.mobile * {
+        cursor: auto;
+    }
+
+    header {
+        mix-blend-mode: normal;
+    }
+
+    /* Ajustes de cabecera */
+    header .cabecera-container {
+        padding: 15px 20px;
+    }
+
+
+
+    /* Reemplaza estas líneas en tu CSS */
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* Inicialmente fuera de la pantalla */
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(18, 18, 18);
+        transition: 0.5s;
+        z-index: 3000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .navbar.active {
+        right: 0;
+        /* Cuando está activo, se muestra en pantalla */
+    }
+
+    body.menu-open {
+        overflow: hidden;
+        /* Evita scroll cuando el menú está abierto */
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .navbar ul li {
+
+        margin: 20px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        z-index: 3000;
+    }
+
+    /* Ocultar contenido de escritorio */
+    .desktop-only {
+        display: none;
+    }
+
+    /* Mostrar layout móvil */
+    .mobile-layout {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+
+    }
+
+    .mobile-name-top,
+    .mobile-name-bottom {
+        font-family: 'Inter', sans-serif;
+        font-size: 6rem;
+        font-weight: 400;
+        color: aliceblue;
+        text-align: center;
+        width: 100%;
+    }
+
+
+
+    /* Slider móvil para Portfolio/Diseño Gráfico */
+    .mobile-slider-container {
+        height: 40px;
+        overflow: hidden;
+        font-family:  'Times New Roman', 'Cormorant Garamond', serif;
+        font-style: italic;
+        font-size: 2rem;
+        font-weight: 200;
+        color: aliceblue;
+        text-align: center;
+        width: 100%;
+        margin-top: 10px;
+        position: relative;
+        /* Añadido */
+    }
+
+    .mobile-slider-text {
+        position: absolute;
+        /* Cambiado de relative a absolute */
+        width: 100%;
+        height: 300%;
+        /* Cambiado de 200% a 300% para tres elementos */
+        transition: none;
+        /* Eliminado para que GSAP controle la animación */
+    }
+
+    .mobile-slider-item {
+        height: 33.33%;
+        /* Cambiado de 50% a 33.33% para tres elementos */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        /* Añadido */
+        overflow: hidden;
+        /* Añadido */
+    }
+
+    .mobile-slider-item-inner {
+        position: absolute;
+        /* Añadido */
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Ajuste para las imágenes del trail */
+    .image-trail-container {
+        display: none;
+        /* Ocultar el efecto trail en móviles */
+    }
+
+    /* Crear un nuevo contenedor para imágenes en móvil */
+    .mobile-image-showcase {
+        display: flex;
+        width: 100%;
+        height: 20%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mobile-image-showcase .content__img {
+        position: absolute;
+        width: 100%;
+        /* Imágenes más horizontales */
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        border-radius: 4px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .mobile-image-showcase .content__img.active {
+        opacity: 1;
+    }
+
+    /* Ajuste para el footer */
+    footer .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 15px;
+        align-items: center;
+        padding: 0 20px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 1024px) and (min-width: 769px) {
+
+    /* Ajustes para tablets */
+    #josec-text {
+        font-size: 6rem;
+    }
+
+    .slider-item-inner {
+        font-size: 4rem;
+    }
+
+    .image-trail-container {
+        display: none;
+        /* También ocultar en tablets */
+    }
+
+    /* Mostrar versión de tablet para imágenes */
+    .tablet-image-showcase {
+        display: flex;
+        width: 100%;
+        height: 300px;
+        position: relative;
+        overflow: hidden;
+
+    }
+
+    .tablet-image-showcase .content__img {
+        position: absolute;
+        width: 70%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        border-radius: 4px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .tablet-image-showcase .content__img.active {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+/* ======= PANTALLAS MAYORES A PORTÁTILES ======= */
+
+/* Monitores Full HD y superiores */
+@media (min-width: 1921px) {
+    .linea {
+        display: inline-block;
+        width: 30px;
+        border-bottom: 2px solid rgb(255, 255, 255);
+        vertical-align: middle;
+        margin: 0 10px;
+    }
+
+    .cabecera a {
+        font-size: 1.8rem;
+    }
+
+    nav ul li a {
+        font-size: 1.8rem;
+    }
+
+    #josec-text {
+        font-size: 12rem;
+    }
+
+    .contenthome {
+        position: absolute;
+        top: 57.5%;
+        left: 50%;
+        width: 100%;
+        text-align: center;
+        cursor: none;
+    }
+
+    .slider-container {
+        height: 10rem;
+        font-size: 7rem;
+    }
+
+    footer {
+        font-size: 19px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        padding-bottom: 20px;
+    }
+
+    .content__img {
+        max-width: 255px;
+        border-radius: 6px;
+    }
+}
+
+@media (min-width: 2560px) {
+
+    /* Aumento del 33% */
+    .linea {
+        width: 40px;
+        /* 30px * 1.33 ≈ 40px */
+        border-bottom: 2.66px solid rgb(255, 255, 255);
+        /* 2px * 1.33 ≈ 2.66px */
+    }
+
+    .cabecera a {
+        font-size: 2.4rem;
+        /* 1.8rem * 1.33 ≈ 2.4rem */
+    }
+
+    nav ul li a {
+        font-size: 2.4rem;
+        /* 1.8rem * 1.33 ≈ 2.4rem */
+    }
+
+    #josec-text {
+        font-size: 16rem;
+        /* 12rem * 1.33 ≈ 16rem */
+    }
+
+    .slider-container {
+        height: 13.3rem;
+        /* 10rem * 1.33 ≈ 13.3rem */
+        font-size: 9.31rem;
+        /* 7rem * 1.33 ≈ 9.31rem */
+    }
+
+    footer {
+        font-size: 25.27px;
+        /* 19px * 1.33 ≈ 25.27px */
+        padding-bottom: 26.6px;
+        /* 20px * 1.33 ≈ 26.6px */
+    }
+
+    .content__img {
+        max-width: 340px;
+        /* 255px * 1.33 ≈ 340px */
+        border-radius: 8px;
+        /* 6px * 1.33 ≈ 8px */
+    }
+}
+
+@media (min-width: 3240px) {
+
+    /* Aumento del 68.5% */
+    .linea {
+        width: 50.55px;
+        /* 30px * 1.685 ≈ 50.55px */
+        border-bottom: 3.37px solid rgb(255, 255, 255);
+        /* 2px * 1.685 ≈ 3.37px */
+    }
+
+    .cabecera a {
+        font-size: 3.03rem;
+        /* 1.8rem * 1.685 ≈ 3.03rem */
+    }
+
+    nav ul li a {
+        font-size: 3.03rem;
+        /* 1.8rem * 1.685 ≈ 3.03rem */
+    }
+
+    #josec-text {
+        font-size: 20.22rem;
+        /* 12rem * 1.685 ≈ 20.22rem */
+    }
+
+    .slider-container {
+        height: 16.85rem;
+        /* 10rem * 1.685 ≈ 16.85rem */
+        font-size: 11.8rem;
+        /* 7rem * 1.685 ≈ 11.8rem */
+    }
+
+    footer {
+        font-size: 32.02px;
+        /* 19px * 1.685 ≈ 32.02px */
+        padding-bottom: 33.7px;
+        /* 20px * 1.685 ≈ 33.7px */
+    }
+
+    .content__img {
+        max-width: 429.68px;
+        /* 255px * 1.685 ≈ 429.68px */
+        border-radius: 10.11px;
+        /* 6px * 1.685 ≈ 10.11px */
+    }
+}
+
+@media (min-width: 4480px) {
+
+    /* Aumento del 133% */
+    .linea {
+        width: 70px;
+        /* 30px * 2.33 ≈ 70px */
+        border-bottom: 4.66px solid rgb(255, 255, 255);
+        /* 2px * 2.33 ≈ 4.66px */
+    }
+
+    .cabecera a {
+        font-size: 4.2rem;
+        /* 1.8rem * 2.33 ≈ 4.2rem */
+    }
+
+    nav ul li a {
+        font-size: 4.2rem;
+        /* 1.8rem * 2.33 ≈ 4.2rem */
+    }
+
+    #josec-text {
+        font-size: 28rem;
+        /* 12rem * 2.33 ≈ 28rem */
+    }
+
+    .slider-container {
+        height: 23.3rem;
+        /* 10rem * 2.33 ≈ 23.3rem */
+        font-size: 16.31rem;
+        /* 7rem * 2.33 ≈ 16.31rem */
+    }
+
+    footer {
+        font-size: 44.27px;
+        /* 19px * 2.33 ≈ 44.27px */
+        padding-bottom: 46.6px;
+        /* 20px * 2.33 ≈ 46.6px */
+    }
+
+    .content__img {
+        max-width: 595px;
+        /* 255px * 2.33 ≈ 595px */
+        border-radius: 14px;
+        /* 6px * 2.33 ≈ 14px */
+    }
+}
+
+@media (min-width: 5120px) {
+
+    /* Aumento del 166.5% */
+    .linea {
+        width: 80px;
+        /* 30px * 2.665 ≈ 80px */
+        border-bottom: 5.33px solid rgb(255, 255, 255);
+        /* 2px * 2.665 ≈ 5.33px */
+    }
+
+    .cabecera a {
+        font-size: 4.8rem;
+        /* 1.8rem * 2.665 ≈ 4.8rem */
+    }
+
+    nav ul li a {
+        font-size: 4.8rem;
+        /* 1.8rem * 2.665 ≈ 4.8rem */
+    }
+
+    #josec-text {
+        font-size: 32rem;
+        /* 12rem * 2.665 ≈ 32rem */
+    }
+
+    .slider-container {
+        height: 26.65rem;
+        /* 10rem * 2.665 ≈ 26.65rem */
+        font-size: 18.66rem;
+        /* 7rem * 2.665 ≈ 18.66rem */
+    }
+
+    footer {
+        font-size: 50.64px;
+        /* 19px * 2.665 ≈ 50.64px */
+        padding-bottom: 53.3px;
+        /* 20px * 2.665 ≈ 53.3px */
+    }
+
+    .content__img {
+        max-width: 680px;
+        /* 255px * 2.665 ≈ 680px */
+        border-radius: 16px;
+        /* 6px * 2.665 ≈ 16px */
+    }
+}

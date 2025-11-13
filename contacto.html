@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="contacto.css?v=1.1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap" rel="stylesheet">
+    <!-- Añadimos Font Awesome para el icono del menú hamburguesa -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="cabecera-container">
+            <div class="cabecera">
+                <a href="index.html">José<span class="linea"></span>Cervera.</a>
+            </div>
+            <!-- Botón de menú hamburguesa para móviles -->
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="navbar">
+                <!-- Añadir un botón de cierre explícito dentro del menú desplegable -->
+                <div class="close-menu">
+                    <i class="fas fa-times"></i>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="sobremi.html">Sobre mí</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="contacto">
+            <div class="titulo">
+                A un mensaje
+                <span class="serif">de distancia.</span>
+            </div>
+
+            <div class="mail">
+                <p>Si tiene alguna pregunta o está interesado en ponerse en contacto conmigo, puede hacerlo a través de
+                    los
+                    siguientes medios.</p><br> <br>
+                <p>Correo corporativo</p>
+                <a href="mailto:josecervera@alu.easda.es">josecervera@alu.easda.es</a><br><br>
+                <p>Correo personal</p>
+                <a href="mailto:joseonacerveramedja@gmail.com">joseonacerveramedja@gmail.com</a><br><br>
+                <p>Teléfono</p>
+                <a href="tel:+34602890479">(+34) 602 890 479</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <span>&copy;2025, Alicante</span>
+            <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Volver Arriba</a>
+            <a href="https://www.instagram.com/on_cervera/" target="_blank">Instagram</a>
+        </div>
+    </footer>
+    
+    <!-- CURSOR -->
+    <div class="cursor"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // Detectar si es un dispositivo móvil o tablet
+        const isMobileOrTablet = () => {
+            return window.innerWidth <= 1024;
+        };
+
+        const cursor = document.querySelector('.cursor');
+        
+        // Solo activar el cursor personalizado en desktop
+        if (!isMobileOrTablet()) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+        } else {
+            cursor.style.display = 'none';
+            document.body.classList.add('mobile');
+        }
+
+        // Asegúrate de que el DOM esté cargado
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animación del título
+            gsap.from(".titulo", {
+                duration: 1.5,
+                y: 100,
+                opacity: 0,
+                ease: "power3.out"
+            });
+
+            // Animación del contenido de mail
+            gsap.from(".mail", {
+                duration: 1.5,
+                y: 100,
+                opacity: 0,
+                delay: 0.3,
+                ease: "power3.out"
+            });
+
+            // Animación de los elementos de navegación
+            gsap.from("nav ul li", {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                stagger: 0.2,
+                ease: "power3.out"
+            });
+
+            // Animación de los enlaces dentro de .mail
+            gsap.from(".mail a", {
+                duration: 1,
+                y: 20,
+                opacity: 0,
+                stagger: 0.2,
+                delay: 0.5,
+                ease: "power3.out"
+            });
+
+            // Animación de los párrafos dentro de .mail
+            gsap.from(".mail p", {
+                duration: 1,
+                y: 20,
+                opacity: 0,
+                stagger: 0.2,
+                delay: 0.5,
+                ease: "power3.out"
+            });
+        });
+
+        // Menú hamburguesa para móviles
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
+            document.querySelector('.navbar').classList.toggle('active');
+            this.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+
+        // Manejar el botón de cierre del menú
+        document.querySelector('.close-menu').addEventListener('click', function () {
+            document.querySelector('.navbar').classList.remove('active');
+            document.querySelector('.menu-toggle').classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+
+        // Cerrar el menú al hacer clic en los enlaces de navegación
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', function () {
+                document.querySelector('.navbar').classList.remove('active');
+                document.querySelector('.menu-toggle').classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+
+        // Manejar cambios de tamaño de ventana
+        window.addEventListener('resize', function () {
+            if (isMobileOrTablet()) {
+                document.body.classList.add('mobile');
+                cursor.style.display = 'none';
+            } else {
+                document.body.classList.remove('mobile');
+                cursor.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+
+</html>
